@@ -8,5 +8,5 @@ node_modules/
 /screenshots/
 /downloads/
 
-# Playwright
+fit # Playwright
 /playwright/.auth/
