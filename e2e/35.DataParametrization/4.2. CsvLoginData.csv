@@ -1,0 +1,3 @@
+username,password,state
+practice,SuperSecretPassword!,valid
+customer,cst123,invalid

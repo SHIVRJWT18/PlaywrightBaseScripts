@@ -1,0 +1,3 @@
+username,password,state
+admin,admin123,valid
+customer,cst123,invalid

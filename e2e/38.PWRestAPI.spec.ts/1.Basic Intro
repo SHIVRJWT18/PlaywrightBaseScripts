@@ -1,0 +1,37 @@
+1. API Testing in Playwright:
+A. Playwright supports both Web UI Testing and REST API Testing.
+B. It provides a built-in request fixture for performing API testing.
+C. Using the request fixture, we can send API requests and validate API responses.
+
+2. GET Request:
+A. A GET request is used to retrieve user/customer information.
+B. It does not require a request payload (body).
+C. The response contains a list of users.
+D. The expected HTTP status code is 200 (OK).
+
+4. POST Request:
+A. A POST request is used to create a new user.
+B. It requires a request payload containing user details.
+C. After successful creation, the response returns:
+   User details, Generated ID, Created date and time
+D. The expected HTTP status code is 201 (Created).
+
+5. PUT Request:
+A. A PUT request is used to update an existing user.
+B. The user ID is passed as part of the URL.
+C. It requires a request payload with updated user information.
+D. The response returns the updated user details along with the update timestamp.
+E. The expected HTTP status code is 200 (OK).
+
+6. DELETE Request:
+A. A DELETE request is used to remove an existing user.
+B. The user ID is passed as part of the URL.
+C. No request payload is required.
+D. The expected HTTP status code is 204 (No Content).
+
+| Request | Purpose        | Status Code        |
+| ------- | -------------- | ------------------ |
+| GET     | Retrieve users | **200 OK**         |
+| POST    | Create user    | **201 Created**    |
+| PUT     | Update user    | **200 OK**         |
+| DELETE  | Delete user    | **204 No Content** |

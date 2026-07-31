@@ -1,0 +1,14 @@
+{ 
+  "credentials": [  
+    {
+      "username": "practice",
+      "password": "SuperSecretPassword!",
+      "state": "Valid"
+    },
+    {
+      "username": "Atom",
+      "password": "Test123",
+      "state": "Invalid"
+    }
+  ]
+}  

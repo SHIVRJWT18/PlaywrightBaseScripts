@@ -1,0 +1,12 @@
+# List of files and directories that need not be pushed to Git.
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/screenshots/
+/downloads/
+
+# Playwright
+/playwright/.auth/

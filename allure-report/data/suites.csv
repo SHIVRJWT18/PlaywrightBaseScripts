@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","4496","Verify Search box","chromium","2026-07-21","passed","2026-07-21","","33.AllureReporters.spec.ts","",""
+"","9687","Verify Shopping cart","chromium","2026-07-21","failed","2026-07-21","","33.AllureReporters.spec.ts","",""
+"","2216","Verify Shopping cart","chromium","2026-07-21","passed","2026-07-21","","32.PWReporters.spec.ts","",""
+"","1848","Verify Logo","chromium","2026-07-21","passed","2026-07-21","","32.PWReporters.spec.ts","",""
+"","4840","Verify Logo","chromium","2026-07-21","passed","2026-07-21","","33.AllureReporters.spec.ts","",""
+"","2058","Verify Search box","chromium","2026-07-21","passed","2026-07-21","","32.PWReporters.spec.ts","",""

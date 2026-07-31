@@ -1,0 +1,19 @@
+1. Page Object Model (POM):
+A. POM is a design pattern used in test automation.
+B. It separates page elements (locators) from test scripts.
+C. Page elements and related actions are maintained in separate files.
+D. Each application page has a separate page class/file.
+
+2. Need for Page Object Model:
+A. Organizes automation code in a structured way.
+B. Separates test logic from page elements.
+C. Improves readability and maintenance.
+D. Allows element changes to be updated in one place.
+
+3. Without Page Object Model:
+A. Test scripts require updates in multiple test cases when elements change.
+B. Increases code duplication and maintenance effort.
+
+Example--
+TC1: Login to App > Add product to cart > Go to cart > Check product added to cart
+TC2: Login to App > Go to cart > Delete product from cart > Check product added to cart

@@ -1,0 +1,28 @@
+{
+  "_comment1": "Invalid test data",
+  "Already registered": [  
+    {
+      "username": "student",
+      "password": "Password123",
+      "confirmpassword": "Password123"
+    }
+  ],
+  "_comment2": "Valid test data",
+  "New credentials": [
+    {
+      "username": "teacher",
+      "password": "Password123",
+      "confirmpassword": "Password123"
+    },
+    {
+      "username": "parent",
+      "password": "Password123",
+      "confirmpassword": "Password123"
+    },
+    {
+      "username": "Mother",
+      "password": "Password123",
+      "confirmpassword": "Password123"
+    }
+  ]
+}
