@@ -25,13 +25,12 @@ export const LoginData  = {
 export const Overview  = {
     overviewURL: "https://parabank.parasoft.com/parabank/overview.htm",
     appTitle: "ParaBank | Accounts Overview",
-    https://parabank.parasoft.com/parabank/openaccount.htm
 };
 
 export const OpenNewAccount  = {
     overviewURL: "https://parabank.parasoft.com/parabank/openaccount.htm",
     appTitle: "ParaBank | Open Account",
-    
+    appUrl: "https://parabank.parasoft.com/parabank/openaccount.htm"
 };
 
 

@@ -10,7 +10,7 @@ import {parse} from 'csv-parse/sync';
 */
 
 // Reading data from the CSV File
-const csvpath = "e2e/DataParametrization/4.1. CsvTestData.csv"; // Forward slash is used
+const csvpath = "tests/DataParametrization/4.1. CsvTestData.csv"; // Forward slash is used
 const filecontent = fs.readFileSync(csvpath,'utf-8'); // fileContent contains the entire CSV data.
 
 //Prasing the CSV data in columns
@@ -47,7 +47,7 @@ else
 
 
 // Simple Login Test
-const csvPath1 = "e2e/DataParametrization/4.2. CsvLoginData.csv";
+const csvPath1 = "tests/DataParametrization/4.2. CsvLoginData.csv";
 const csvcontent = fs.readFileSync(csvPath1,'utf-8'); // fileContent contains the entire CSV data.
 const fetchdata = parse(csvcontent, {columns:true, skip_empty_lines:true}); //Prasing the CSV data in columns
 

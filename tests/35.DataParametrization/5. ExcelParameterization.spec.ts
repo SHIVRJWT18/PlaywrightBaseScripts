@@ -13,7 +13,7 @@ import * as XLSX from 'xlsx';
 */
 
 // Reading data from the Excel File: File-->Workbook-->sheets-->rows & Columns 
-const excelpath = "e2e/DataParametrization/5.1. ExcelTestData.xlsx"; // Forward slash is used
+const excelpath = "tests/DataParametrization/5.1. ExcelTestData.xlsx"; // Forward slash is used
 const workbook = XLSX.readFile(excelpath);
 const sheetname = workbook.SheetNames[0];
 const worksheet = workbook.Sheets[sheetname];
@@ -49,7 +49,7 @@ else
 
 
 // Simple Login Test
-const xcelpath = "e2e/DataParametrization/5.2. ExcelLoginData.xlsx";
+const xcelpath = "tests/DataParametrization/5.2. ExcelLoginData.xlsx";
 const workbook1 = XLSX.readFile(xcelpath);
 const sheetname1 =workbook1.SheetNames[0];
 const worksheet1 = workbook1.Sheets[sheetname1];

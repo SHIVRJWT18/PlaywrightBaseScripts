@@ -15,7 +15,7 @@ import { test, expect, Locator } from '@playwright/test';
 
 test("1. Verify Image Elem", async ({page})=>{
 // page.getByAltText() - identifies images based on the alt attribute such as img and area element
-  await page.gotp/playwrightpractice.html");
+  await page.goto("https://testautomationpractice.blogspot.com/p/playwrightpractice.html"); 
   const logoElem:Locator = page.getByAltText("logo image"); // await is not needed here because the return type is a locator, not a Promise.
   await expect(logoElem).toBeVisible();
 });

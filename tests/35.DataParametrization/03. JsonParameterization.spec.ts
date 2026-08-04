@@ -2,7 +2,7 @@ import {test,expect,Locator} from '@playwright/test';
 import fs from 'fs'; // fs -- File System
 
 // Fetching Json data
-const jsonPath = "e2e/DataParametrization/3.1. JsonTestData.json";  // Forward slash is used
+const jsonPath = "tests/DataParametrization/3.1. JsonTestData.json";  // Forward slash is used
 const regdata:any = JSON.parse(fs.readFileSync(jsonPath,'utf-8')); // UTF - Unified Transformation Format
 
 test.describe('Valid Register Test', async () => {
@@ -35,7 +35,7 @@ await expect (page).toHaveURL("https://practice.expandtesting.com/register");
 });
 
 // Simple Login Test
-const jsonPath1 = "e2e/DataParametrization/3.2. JsonLoginData.json";
+const jsonPath1 = "tests/DataParametrization/3.2. JsonLoginData.json";
 const credgdata:any = JSON.parse(fs.readFileSync(jsonPath1,'utf-8')); 
 
 test('Simple Login Test', async ({page}) => {
