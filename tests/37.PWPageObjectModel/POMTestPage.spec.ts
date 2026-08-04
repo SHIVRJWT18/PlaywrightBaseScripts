@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
-import { PageManager } from '../37.PWPageObjectModel/PageManager';
-import { LoginData, Overview, RegisterData } from '../37.PWPageObjectModel/TestDataPage';
+import { PageManager } from './PageManager';
+import { LoginData, Overview, RegisterData } from './TestDataPage';
 
 test('register the app',async ({page}) => {
 const pm = new PageManager(page);

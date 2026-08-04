@@ -1,8 +1,8 @@
 
 import {Page} from "@playwright/test";
-import { RegisterPage } from '../37.PWPageObjectModel/RegisterPage';
-import { LoginPage } from '../37.PWPageObjectModel/LoginPage';
-import { OverviewPage } from '../37.PWPageObjectModel/OverviewPage';
+import { RegisterPage } from './RegisterPage';
+import { LoginPage } from './LoginPage';
+import { OverviewPage } from './OverviewPage';
 
 
 
