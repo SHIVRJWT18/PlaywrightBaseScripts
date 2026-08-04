@@ -1,4 +1,4 @@
-import {test,expect,Locator} from '@playwright/test';
+import {test,expect} from '@playwright/test';
 import fs from 'fs';
 import {parse} from 'csv-parse/sync';
 
@@ -9,29 +9,35 @@ import {parse} from 'csv-parse/sync';
 3. Add this import statement - import {parse} from 'csv-parse/sync'; 
 */
 
+interface CsvData {
+  username: string;
+  password: string;
+  state: string;
+}
+
 // Reading data from the CSV File
-const csvpath = "tests/DataParametrization/4.1. CsvTestData.csv"; // Forward slash is used
+const csvpath = "tests/35.DataParametrization/4.1. CsvTestData.csv"; // Forward slash is used
 const filecontent = fs.readFileSync(csvpath,'utf-8'); // fileContent contains the entire CSV data.
 
 //Prasing the CSV data in columns
-const record = parse(filecontent, {columns:true, skip_empty_lines:true});
+const record: CsvData[] = parse(filecontent, {columns:true, skip_empty_lines:true});
 
 /* NOTE:  filecontent read the whole content from the csv file. Here Each line treat as one record from 
           the entire content. We have to grab each & every line in forms of records. Hence we need to 
           Parse it to split the content into individual records, where each line represents one record.
 */
 
-test.describe('Valid Login Test', async () => {
+test.describe('Valid Login Test', () => {
 
-for(const csvdata of record)
+for(const getcsvdata of record)
 
-test(`Login valid user: ${csvdata.username} and password: ${csvdata.password}`, async ({page}) => {
+test(`Login valid user: ${getcsvdata.username} and password: ${getcsvdata.password}`, async ({page}) => {
 await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 await expect (page).toHaveTitle('OrangeHRM');
-await page.locator("input[placeholder='Username']").fill(csvdata.username); 
-await page.locator("input[placeholder='Password']").fill(csvdata.password); 
+await page.locator("input[placeholder='Username']").fill(getcsvdata.username); 
+await page.locator("input[placeholder='Password']").fill(getcsvdata.password); 
 await page.locator("button[type='Submit']").click(); 
-if(csvdata.state.toLowerCase()==='valid')
+if(getcsvdata.state.toLowerCase()==='valid')
 {    
 console.log(await page.locator("span.oxd-topbar-header-breadcrumb").innerText());
 await expect (page).toHaveURL("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index");
@@ -47,9 +53,9 @@ else
 
 
 // Simple Login Test
-const csvPath1 = "tests/DataParametrization/4.2. CsvLoginData.csv";
+const csvPath1 = "tests/35.DataParametrization/4.2. CsvLoginData.csv";
 const csvcontent = fs.readFileSync(csvPath1,'utf-8'); // fileContent contains the entire CSV data.
-const fetchdata = parse(csvcontent, {columns:true, skip_empty_lines:true}); //Prasing the CSV data in columns
+const fetchdata: CsvData[] = parse(csvcontent, {columns:true, skip_empty_lines:true}); //Prasing the CSV data in columns
 
 test('Simple Login Test', async ({page}) => {
 const input =  fetchdata[0];  // Pass index 1 to view negative flow
