@@ -1,4 +1,4 @@
-import {test,expect,Locator} from '@playwright/test';
+import {test,expect} from '@playwright/test';
 import fs from 'fs';
 import * as XLSX from 'xlsx';
 
@@ -13,16 +13,15 @@ import * as XLSX from 'xlsx';
 */
 
 // Reading data from the Excel File: File-->Workbook-->sheets-->rows & Columns 
-const excelpath = "tests/DataParametrization/5.1. ExcelTestData.xlsx"; // Forward slash is used
-const workbook = XLSX.readFile(excelpath);
+const excelpath1 = "tests/35.DataParametrization/5.1. ExcelTestData.xlsx"; // Forward slash is used
+const workbook = XLSX.readFile(excelpath1);
 const sheetname = workbook.SheetNames[0];
 const worksheet = workbook.Sheets[sheetname];
-
 //converting Sheets into JSON format
 const logindata:any = XLSX.utils.sheet_to_json(worksheet);  // data is in JSON Format 
 console.log(logindata);
 
-test.describe('Valid Login Test', async () => {
+test.describe('Valid Login Test', () => {
 for(const getjsondata of logindata) {
 console.log("Check data:",getjsondata);
 test(`Login valid user: ${getjsondata.username} and password: ${getjsondata.password}`, async ({page}) => {
@@ -49,7 +48,7 @@ else
 
 
 // Simple Login Test
-const xcelpath = "tests/DataParametrization/5.2. ExcelLoginData.xlsx";
+const xcelpath = "tests/35.DataParametrization/5.2. ExcelLoginData.xlsx";
 const workbook1 = XLSX.readFile(xcelpath);
 const sheetname1 =workbook1.SheetNames[0];
 const worksheet1 = workbook1.Sheets[sheetname1];
