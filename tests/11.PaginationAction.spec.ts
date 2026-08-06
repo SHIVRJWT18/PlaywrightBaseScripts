@@ -2,7 +2,7 @@ import {test,expect,Locator} from '@playwright/test';
 //1 . Handling Pagination Web table
 test('Pagination WebTable Actions', async ({page}) => {
 await page.goto("https://practice.expandtesting.com/dynamic-pagination-table");
-await expect(page.locator("#example > tbody > tr")).toBeVisible();
+await expect(page.locator("li.breadcrumb-item.active")).toBeVisible();
 // Read all table data from all the pages: (check No. of Pages then No. of rows)
 let hasmorePages = true;
 // As no. of pages are dynamic in nature, so use while loop

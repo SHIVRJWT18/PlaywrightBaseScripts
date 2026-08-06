@@ -32,9 +32,9 @@ export class RegisterPage {
     address: string,
     city: string,
     state: string,
-    zipcode: number,
-    phone: number,
-    ssn: number,
+    zipcode: string,
+    phone: string,
+    ssn: string,
     username: string,
     password: string,
     confirmPassword: string
