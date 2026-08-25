@@ -1,18 +1,29 @@
 import {test,expect} from '@playwright/test';
 
 /**
- * 1. POST requests are primarily used to create new data on the server.
-   2. POST requests can also be used to update data depending on API design.
-   3. Components Used in POST Call
+ * 1. POST requests are primarily used to create new data or update existing data on the server.
+   2. Components Used in POST Call
       Components to use -
       • BaseURL + Resource
       • Header (if required) 
         Common headers include:- Content-Type, Authorization and Accept
       • Body (data)
         Common formats include:- JSON (JavaScript Object Notation) and XML 
+   3. Ways to Provide baseURL with Headers-
+      • With HTTP Method.
+      • By using request context in Test block
+      • By Using request context in with beforeAll
+      • In Playwright.config.ts file-
+        use: {
+        baseURL: 'https://restful-booker.herokuapp.com/booking',
+        extraHTTPHeaders: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+         }
+        };
 */
 
-// 1. POST create new booking request
+// 1. By passing headers and body as data type in test block
 test('1. Post to create new booking', async ({request}) => {
     const response = await request.post('https://restful-booker.herokuapp.com/booking',
     {
@@ -40,7 +51,7 @@ test('1. Post to create new booking', async ({request}) => {
     expect(responseBody.booking).toHaveProperty('lastname', 'Aggarwal');
 });
 
-// 2. POST create new user Account request
+// 2. By passing headers and body as form type in test block
 test('2. Post to create new user account', async ({request}) => {
     const response = await request.post('https://automationexercise.com/api/createAccount',
     {
@@ -48,14 +59,14 @@ test('2. Post to create new user account', async ({request}) => {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
  form: {
-        name: 'Aditya Kumar',
-        email: 'kumaradi123@example.com',
+        name: 'Pradeep Kumar',
+        email: 'kumaradi1246@example.com',
         password: 'Test@1023',
         title: 'Mr',
         birth_date: '15',
         birth_month: '08',
         birth_year: '1995',
-        firstname: 'Aditya',
+        firstname: 'Pradeep',
         lastname: 'Kumar',
         company: 'ABC Technologies',
         address1: 'Sector q62',
@@ -74,24 +85,13 @@ test('2. Post to create new user account', async ({request}) => {
   expect(responseBody).toHaveProperty('message', 'User created!');
 });
 
-//3. Validate Post request with Web UI (Add product to cart)
-test('3. Validate Post request with Web UI', async ({request,page}) => {
-  const response = await request.post('https://api.demoblaze.com/addtocart', {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    data: {
-          "id":"2d64c475-28e4-a3ad-be60-bca5cd9d76f8",
-          "cookie":"user=4f59ee9d-9537-accc-9174-88afda3037b7",
-          "prod_id":1,
-          "flag": false
-         }
-    }
-  );
-expect(response.status()).toBe(200);
-await page.goto('https://demoblaze.com/cart.html');
-const cartItem = await page.locator('tr.success').first();
-const productName = await cartItem.locator('td:nth-child(2)').textContent();
-console.log("Print Web UI Product Name", productName);
-expect(productName).toBe('Samsung galaxy s6');
-});
+test('3. Get created user account detail', async ({request}) => {
+const response = await request.get('https://automationexercise.com/api/getUserDetailByEmail?email=kumaradi1246@example.com');
+const responseBody = await response.json();
+console.log("Print GET responseBody", responseBody);
+expect(responseBody.responseCode).toBe(200);
+expect(responseBody.user.email).toBe('kumaradi1246@example.com');
+expect(responseBody.user.name).toBe('Pradeep Kumar'); 
+});  
+
+
