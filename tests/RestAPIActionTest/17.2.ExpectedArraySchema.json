@@ -1,0 +1,17 @@
+{
+ "type": "array",   
+ "items": {
+  "type": "object",
+  "properties": {
+   "id": { "type": "string" },
+   "title": { "type": "string" },    
+   "url": { "type": "string" },
+   "created_at": { "type": "string" },   
+   "company": { "type": "string" },
+   "location": { "type": "string" },
+   "country": { "type": "string" }
+ }, 
+ "required": ["id", "title", "url", "created_at", "company", "location", "country"],
+ "additionalProperties": false
+ }
+}
