@@ -109,6 +109,8 @@ for(let i=0;i<suggcount;i++)
 ex1. <span> smart </span>  == uses inner text() 
 ex2. <span> label:country name:India </span> == uses textContent() */
 
+// Hidden dropdown - Dropdown present in the DOM but not visible on the UI. In this case, we can use the locator to get all the options and select the required option.
+
 // 4. Hidden options Drop down (Without having select tag)
 test('Hidden options Drpdwn',async ({page}) => {
 await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
@@ -135,3 +137,4 @@ for(let i=0;i<(await getalloptn.count());i++)
     }       
 }    
 });
+
